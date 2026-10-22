@@ -218,3 +218,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Environment variables
+.env.*
+!.env.example
+
+# Django
+staticfiles/
+media/
+*.sqlite3
+
+# Python virtual environments
+.python-version
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Test and type-checking caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
