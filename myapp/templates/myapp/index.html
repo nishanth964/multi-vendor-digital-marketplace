@@ -1,5 +1,56 @@
 {% extends 'myapp/base.html' %}
 
 {% block body %}
-    <h1>This is the index page</h1>
+<div class="max-w-7xl mx-auto px-6 py-12">
+
+    <div class="mb-10">
+        <h1 class="text-3xl font-bold text-gray-900">
+            Discover Digital Products
+        </h1>
+        <p class="mt-2 text-gray-500">
+            Explore products from independent creators.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        {% for product in products %}
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+
+            <div class="h-40 bg-gray-100 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Digital Product</span>
+            </div>
+
+            <div class="p-5">
+                <h2 class="text-lg font-semibold text-gray-900">
+                    {{ product.name }}
+                </h2>
+
+                <p class="mt-2 text-sm text-gray-600">
+                    {{ product.description }}
+                </p>
+
+                <p class="mt-4 text-xl font-bold text-indigo-600">
+                    ₹{{ product.price }}
+                </p>
+
+                {% if product.file %}
+                <a
+                    href="{{ product.file.url }}"
+                    class="mt-5 block w-full text-center bg-indigo-600 text-white py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition"
+                >
+                    Download Product
+                </a>
+                {% endif %}
+            </div>
+
+        </div>
+        {% empty %}
+        <p class="col-span-full text-center py-16 text-gray-500">
+            No products available yet.
+        </p>
+        {% endfor %}
+
+    </div>
+</div>
 {% endblock %}
