@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+<div class="max-w-3xl mx-auto px-6 py-12">
+
+    <a href="{% url 'myapp:index' %}" class="text-indigo-600 hover:underline">
+        ← Back to products
+    </a>
+
+    <div class="mt-6 bg-white border border-gray-200 rounded-xl p-8">
+        <h1 class="text-3xl font-bold text-gray-900">
+            {{ product.name }}
+        </h1>
+
+        <p class="mt-4 text-gray-600">
+            {{ product.description }}
+        </p>
+
+        <p class="mt-6 text-2xl font-bold text-indigo-600">
+            ₹{{ product.price }}
+        </p>
+    </div>
+
+</div>
+{% endblock %}
